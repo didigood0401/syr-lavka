@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сырная лавка - сыры и закуски с доставкой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#121a15;--bg2:#18231c;--card:#1e2b23;--cream:#f3ead8;--mut:#b7ad9a;--line:#2e3d33;--amb:#e0a83e;--amb2:#f2c86d;--paper:#f7f1e4;--ink:#1a1712}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.pf{font-family:"Playfair Display",serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.demo{background:var(--amb);color:var(--ink);text-align:center;font-size:13px;padding:7px 16px;font-weight:500}
+header{position:sticky;top:0;z-index:30;background:rgba(18,26,21,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:"Playfair Display";font-size:24px;font-weight:700;letter-spacing:.01em}
+.logo i{color:var(--amb);font-style:italic;font-weight:500}
+nav{display:flex;gap:26px;font-size:14.5px;color:var(--mut)}
+nav a{color:inherit;text-decoration:none}nav a:hover{color:var(--cream)}
+.cartb{display:flex;align-items:center;gap:10px;background:var(--amb);color:var(--ink);border-radius:30px;padding:10px 18px;font-weight:600;font-size:14.5px}
+.cartb span{background:var(--ink);color:var(--amb2);border-radius:20px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;transition:transform .25s}
+.cartb span.pop{transform:scale(1.35)}
+.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;transform:scale(1.08);animation:z 10s ease-out forwards}
+@keyframes z{to{transform:scale(1)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,20,16,.92) 0%,rgba(14,20,16,.55) 48%,rgba(14,20,16,.05) 100%),linear-gradient(0deg,rgba(14,20,16,.9),transparent 45%)}
+.hc{position:relative;z-index:1;padding:80px 0 70px}
+.kick{display:inline-flex;gap:10px;align-items:center;color:var(--amb2);font-size:14px;font-weight:600}
+.kick:before{content:"";width:28px;height:1px;background:var(--amb2)}
+.hero h1{font-family:"Playfair Display";font-weight:500;font-size:clamp(42px,6.6vw,92px);line-height:1;margin:18px 0 22px;max-width:820px}
+.hero h1 em{color:var(--amb2)}
+.hero p{max-width:470px;color:#d8cfbd;font-size:17.5px}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:16px 26px;font-weight:600;font-size:15px;transition:.2s;text-decoration:none}
+.btn.a{background:var(--amb);color:var(--ink)}.btn.a:hover{background:var(--amb2)}
+.btn.o{border:1px solid rgba(243,234,216,.4);color:var(--cream)}.btn.o:hover{border-color:var(--cream)}
+.facts{display:flex;gap:40px;margin-top:46px;flex-wrap:wrap}
+.facts b{display:block;font-family:"Playfair Display";font-size:28px;font-weight:500;color:var(--cream)}
+.facts span{font-size:13.5px;color:var(--mut)}
+section{padding:96px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.sh h2{font-family:"Playfair Display";font-weight:500;font-size:clamp(34px,4.4vw,58px);line-height:1.05}
+.sh h2 em{color:var(--amb2)}
+.sh p{color:var(--mut);max-width:420px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{border:1px solid var(--line);border-radius:30px;padding:10px 18px;font-size:14px;color:var(--mut);transition:.2s}
+.chip.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-4px);border-color:#46594b}
+.card.hide{display:none}
+.ph{aspect-ratio:4/3.2;overflow:hidden;position:relative}
+.ph img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph img{transform:scale(1.06)}
+.flag{position:absolute;left:12px;top:12px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px}
+.cb{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cb h3{font-family:"Playfair Display";font-weight:500;font-size:21px;line-height:1.2}
+.cb .d{font-size:13.5px;color:var(--mut)}
+.wt{display:flex;gap:6px}
+.wt button{flex:1;border:1px solid var(--line);border-radius:10px;padding:7px 0;font-size:13px;color:var(--mut)}
+.wt button.on{border-color:var(--amb);color:var(--amb2);background:rgba(224,168,62,.08)}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.pr{font-size:19px;font-weight:700}
+.add{background:var(--cream);color:var(--ink);border-radius:30px;padding:10px 16px;font-size:14px;font-weight:600;transition:.2s}
+.add:hover{background:var(--amb2)}.add.ok{background:var(--amb)}
+/* builder */
+.builder{background:var(--paper);color:var(--ink)}
+.builder .sh p{color:#6c6455}
+.builder .sh h2 em{color:#b37a16}
+.bg{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.board{position:relative;aspect-ratio:1/0.72;border-radius:50% 46% 48% 50%/40% 44% 42% 46%;background:radial-gradient(ellipse at 40% 35%,#c9905a,#9c6434 70%,#7c4c24);box-shadow:0 30px 60px rgba(0,0,0,.28),inset 0 0 0 10px rgba(255,255,255,.06);overflow:hidden}
+.board:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(8deg,rgba(80,45,15,.18) 0 2px,transparent 2px 14px);border-radius:inherit}
+.slot{position:absolute;width:28%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid rgba(255,248,235,.85);box-shadow:0 10px 20px rgba(0,0,0,.3);transform:scale(0) rotate(-20deg);transition:transform .55s cubic-bezier(.3,1.5,.5,1)}
+.slot.in{transform:scale(1) rotate(0)}
+.bempty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,245,225,.85);font-family:"Playfair Display";font-size:22px;font-style:italic;transition:opacity .4s;text-align:center;padding:20px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.opt{display:flex;align-items:center;gap:10px;border:1.5px solid #ddd2bd;border-radius:14px;padding:10px;text-align:left;transition:.2s;color:var(--ink)}
+.opt .t{width:44px;height:44px;border-radius:10px;overflow:hidden;flex:none}
+.opt b{font-weight:600;font-size:14px;display:block}.opt span{font-size:12.5px;color:#6c6455}
+.opt.on{border-color:var(--ink);background:#fff}
+.btot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #ddd2bd;padding-top:20px}
+.btot .s{font-family:"Playfair Display";font-size:34px}
+.btot small{display:block;color:#b37a16;font-size:13px;font-weight:600}
+.btn.d{background:var(--ink);color:var(--paper)}.btn.d:hover{background:#3a3226}
+/* pairing */
+.pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pair{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/4.6}
+.pair:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,17,14,.92),rgba(12,17,14,.1) 60%)}
+.pair div{position:absolute;left:22px;right:22px;bottom:22px;z-index:1}
+.pair h3{font-family:"Playfair Display";font-weight:500;font-size:26px}
+.pair p{color:#d6ccb8;font-size:14.5px;margin-top:6px}
+/* delivery */
+.del{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dl{border:1px solid var(--line);border-radius:18px;padding:24px}
+.dl b{font-family:"Playfair Display";font-weight:500;font-size:22px;display:block;margin-bottom:6px}
+.dl span{color:var(--mut);font-size:14.5px}
+footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);font-size:14px}
+.ft{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s;z-index:50}.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--paper);color:var(--ink);z-index:60;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+.dr.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid #e3d8c3}
+.dh h3{font-family:"Playfair Display";font-weight:500;font-size:26px}
+.db{flex:1;overflow:auto;padding:6px 24px}
+.di{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #e9dfcc;align-items:center}
+.di .t{width:60px;height:60px;border-radius:12px;overflow:hidden;flex:none}
+.di .n{flex:1;font-size:14px}.di .n b{display:block;font-size:15px}
+.q{display:flex;gap:8px;align-items:center;margin-top:4px}.q button{width:24px;height:24px;border-radius:50%;border:1px solid #d5c9b2}
+.df{padding:18px 24px 22px;border-top:1px solid #e3d8c3}
+.pay{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0 14px}
+.pay label{border:1.5px solid #ddd2bd;border-radius:12px;padding:10px 6px;text-align:center;font-size:13px;cursor:pointer;transition:.2s}
+.pay input{display:none}.pay label:has(input:checked){border-color:var(--ink);background:#fff;font-weight:600}
+.dm{display:flex;gap:8px;margin-bottom:12px}.dm label{flex:1;border:1.5px solid #ddd2bd;border-radius:12px;padding:9px;text-align:center;font-size:13px;cursor:pointer}.dm input{display:none}.dm label:has(input:checked){border-color:var(--ink);background:#fff;font-weight:600}
+.row{display:flex;justify-content:space-between;font-size:15px;margin:4px 0}
+.row.tot{font-size:20px;font-weight:700;margin-top:10px}
+.go{width:100%;justify-content:center;margin-top:14px}
+.empty{color:#7a705f;text-align:center;padding:40px 0}
+.done{display:none;text-align:center;padding:40px 10px}.done b{font-family:"Playfair Display";font-size:26px;display:block;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);visibility:hidden;background:var(--cream);color:var(--ink);padding:12px 22px;border-radius:30px;font-size:14px;font-weight:600;z-index:70;transition:.35s}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){nav{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bg{grid-template-columns:1fr}.pairs{grid-template-columns:1fr}.pair{aspect-ratio:16/10}.del{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr}.del{grid-template-columns:1fr}.opts{grid-template-columns:1fr}section{padding:70px 0}.facts{gap:24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-концепция интернет-магазина сыров и закусок · название, цены и фото условные · корзина и оформление работают</div>
+<header><div class="wrap hd">
+ <div class="logo">Сырная <i>лавка</i></div>
+ <nav><a href="#cat">Каталог</a><a href="#board">Собрать тарелку</a><a href="#pair">К вину</a><a href="#del">Доставка и оплата</a></nav>
+ <button class="cartb" id="ob">Корзина <span id="cnt">0</span></button>
+</div></header>
+
+<div class="hero"><img src="img/hero.jpg" alt="Выдержанные сыры на тёмной доске">
+ <div class="wrap hc">
+  <div class="kick">Фермерские и выдержанные сыры</div>
+  <h1>Сыры, которые хочется <em>резать медленно</em></h1>
+  <p>Твёрдые, мягкие, с плесенью и к вину - нарежем на вес, соберём тарелку и привезём сегодня. Оплата онлайн или наличными курьеру.</p>
+  <div class="cta"><a href="#cat" class="btn a">Выбрать сыр →</a><a href="#board" class="btn o">Собрать сырную тарелку</a></div>
+  <div class="facts"><div><b>60+</b><span>сортов в наличии</span></div><div><b>2 часа</b><span>доставка по городу</span></div><div><b>от 100 г</b><span>режем на вес</span></div></div>
+ </div>
+</div>
+
+<section id="cat"><div class="wrap">
+ <div class="sh rv"><h2>Каталог <em>на вес</em></h2><p>Выберите вес прямо в карточке - цена пересчитается сразу. Можно взять по 100 г разных сортов.</p></div>
+ <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button></div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="builder" id="board"><div class="wrap">
+ <div class="sh rv"><h2>Соберите <em>сырную тарелку</em></h2><p>Отметьте 3-5 позиций - мы нарежем, красиво разложим на доске и добавим мёд и орехи. От 4 позиций - скидка 10%.</p></div>
+ <div class="bg">
+  <div class="board rv" id="bd"><div class="bempty" id="be">Выберите сыры и закуски →</div></div>
+  <div class="rv">
+   <div class="opts" id="opts"></div>
+   <div class="btot"><div><div class="s" id="bs">0 ₽</div><small id="bsv">Выберите от 3 позиций</small></div><button class="btn d" id="bAdd">Добавить тарелку в корзину</button></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="pair"><div class="wrap">
+ <div class="sh rv"><h2>Что взять <em>к вину</em></h2><p>Сомелье лавки подобрал готовые сочетания - достаточно выбрать вино.</p></div>
+ <div class="pairs">
+  <div class="pair rv"><img src="img/wine.jpg" alt="Сыры к красному вину"><div><h3>К красному</h3><p>Пармезан 24 мес., гауда с пажитником, сыровяленая колбаса</p></div></div>
+  <div class="pair rv"><img src="img/c2.jpg" alt="Сыры к белому вину"><div><h3>К белому и игристому</h3><p>Бри, камамбер, козий сыр, малина и мёд</p></div></div>
+  <div class="pair rv"><img src="img/s2.jpg" alt="Закуски к ужину"><div><h3>К ужину на компанию</h3><p>Хлеб на закваске, оливки, хамон, моцарелла</p></div></div>
+ </div>
+</div></section>
+
+<section id="del" style="padding-top:0"><div class="wrap">
+ <div class="sh rv"><h2>Доставка <em>и оплата</em></h2></div>
+ <div class="del">
+  <div class="dl rv"><b>Сегодня за 2 часа</b><span>курьер в термосумке, бесплатно от 3 000 ₽</span></div>
+  <div class="dl rv"><b>Самовывоз</b><span>из лавки через 20 минут после заказа</span></div>
+  <div class="dl rv"><b>Онлайн-оплата</b><span>картой или по СБП прямо на сайте</span></div>
+  <div class="dl rv"><b>Наличными</b><span>или картой курьеру при получении</span></div>
+ </div>
+</div></section>
+
+<footer><div class="wrap ft"><div class="logo">Сырная <i>лавка</i></div><div>Демо-концепция. Название, цены, фото - условные.</div><div>Дизайн и разработка - Диана</div></div></footer>
+
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr">
+ <div class="dh"><h3>Корзина</h3><button id="cl" style="font-size:28px" aria-label="Закрыть">×</button></div>
+ <div class="db" id="db"></div>
+ <div class="done" id="dn"><b>Заказ принят!</b>В рабочей версии здесь - оплата онлайн или подтверждение заказа с оплатой курьеру.</div>
+ <div class="df" id="df">
+  <div class="dm"><label><input type="radio" name="dm" value="c" checked>Курьер</label><label><input type="radio" name="dm" value="p">Самовывоз</label></div>
+  <div style="font-size:13px;color:#6c6455">Оплата</div>
+  <div class="pay"><label><input type="radio" name="pay" checked>Картой онлайн</label><label><input type="radio" name="pay">СБП</label><label><input type="radio" name="pay">Наличными</label></div>
+  <div class="row"><span>Товары</span><span id="sub">0 ₽</span></div>
+  <div class="row"><span>Доставка</span><span id="dlv">0 ₽</span></div>
+  <div class="row tot"><span>Итого</span><span id="tot">0 ₽</span></div>
+  <button class="btn d go" id="go">Оформить заказ</button>
+ </div>
+</aside>
+<div class="toast" id="tst"></div>
+
+<script>
+const P=[
+ {id:1,n:'Пармезан 24 мес.',d:'Италия · твёрдый, кристаллы',p:390,img:'c1',t:'hard',f:'Хит'},
+ {id:2,n:'Дор блю',d:'с голубой плесенью, сливочный',p:320,img:'c2',t:'soft'},
+ {id:3,n:'Бри де Мо',d:'мягкий, белая плесень',p:360,img:'c3',t:'soft',f:'Новинка'},
+ {id:4,n:'Маасдам',d:'полутвёрдый, ореховый',p:240,img:'c4',t:'hard'},
+ {id:5,n:'Гауда с оливками',d:'фермерская, 6 мес.',p:280,img:'c5',t:'hard'},
+ {id:6,n:'Моцарелла и томаты',d:'свежий сыр, капрезе',p:210,img:'c6',t:'fresh'},
+ {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'snack'},
+ {id:8,n:'Оливки и хлеб',d:'каламата, закваска',p:190,img:'s2',t:'snack'},
+ {id:9,n:'Набор «Вечер»',d:'5 сыров, мёд, орехи · 600 г',p:2490,img:'s3',t:'set',fix:1,f:'Набор'},
+ {id:10,n:'Набор «Пикник»',d:'сыры, колбасы, хлеб · 900 г',p:3290,img:'board',t:'set',fix:1},
+ {id:11,n:'Сыр к вину',d:'выдержанный, 12 мес.',p:350,img:'alt',t:'hard'},
+ {id:12,n:'Ассорти к игристому',d:'бри, козий, ягоды · 400 г',p:1890,img:'wine',t:'set',fix:1}
+];
+const rub=n=>n.toLocaleString('ru-RU')+' ₽';const $=s=>document.querySelector(s);
+let cart=[];
+$('#grid').innerHTML=P.map(p=>`<div class="card rv" data-t="${p.t}"><div class="ph"><img src="img/${p.img}.jpg" alt="${p.n}" loading="lazy">${p.f?`<span class="flag">${p.f}</span>`:''}</div>
+ <div class="cb"><h3>${p.n}</h3><div class="d">${p.d}</div>${p.fix?'':`<div class="wt">${[100,200,300].map((w,i)=>`<button data-w="${w}" class="${i==1?'on':''}">${w} г</button>`).join('')}</div>`}
+ <div class="buy"><div class="pr" data-p="${p.p}">${rub(p.fix?p.p:p.p*2)}</div><button class="add" data-id="${p.id}">В корзину</button></div></div></div>`).join('');
+document.querySelectorAll('.wt').forEach(w=>w.onclick=e=>{const b=e.target.closest('button');if(!b)return;w.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const pr=w.parentNode.querySelector('.pr');pr.textContent=rub(+pr.dataset.p*b.dataset.w/100)});
+document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const p=P.find(x=>x.id==b.dataset.id);const w=b.closest('.cb').querySelector('.wt .on');const g=w?+w.dataset.w:0;
+ add({k:p.id+'-'+g,n:p.n+(g?` · ${g} г`:''),p:g?p.p*g/100:p.p,img:p.img});b.textContent='Добавлено ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='В корзину';b.classList.remove('ok')},1500)});
+$('#chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));document.querySelectorAll('.card').forEach(k=>k.classList.toggle('hide',c.dataset.f!=='all'&&k.dataset.t!==c.dataset.f))};
+function add(it){const e=cart.find(x=>x.k===it.k);e?e.q++:cart.push({...it,q:1});render();const c=$('#cnt');c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),250);toast('Добавлено в корзину')}
+function render(){$('#cnt').textContent=cart.reduce((a,b)=>a+b.q,0);
+ $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t"><img src="img/${i.img}.jpg" alt=""></div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пустая.<br>Самое время выбрать сыр.</div>';
+ const s=cart.reduce((a,b)=>a+b.p*b.q,0);const pick=document.querySelector('input[name=dm]:checked').value==='p';const d=pick||s>=3000||!s?0:290;
+ $('#sub').textContent=rub(s);$('#dlv').textContent=pick?'самовывоз':(d?rub(d):'бесплатно');$('#tot').textContent=rub(s+d)}
+document.querySelectorAll('input[name=dm]').forEach(r=>r.onchange=render);
+$('#db').onclick=e=>{const b=e.target.closest('button[data-k]');if(!b)return;const i=cart.find(x=>x.k===b.dataset.k);i.q+=+b.dataset.d;if(i.q<=0)cart=cart.filter(x=>x!==i);render()};
+const op=v=>{$('#dr').classList.toggle('on',v);$('#ov').classList.toggle('on',v);if(v){$('#dn').style.display='none';$('#db').style.display='';$('#df').style.display=''}};
+$('#ob').onclick=()=>op(1);$('#cl').onclick=()=>op(0);$('#ov').onclick=()=>op(0);
+$('#go').onclick=()=>{if(!cart.length)return toast('Добавьте что-нибудь в корзину');$('#db').style.display='none';$('#df').style.display='none';$('#dn').style.display='block';cart=[];render()};
+// board builder
+const B=[1,2,3,4,5,7,8,6].map(id=>P.find(p=>p.id===id));const sel=new Set();
+const pos=[[8,10],[38,5],[66,14],[16,52],[46,46],[70,56],[30,28],[56,30]];
+$('#opts').innerHTML=B.map((p,i)=>`<button class="opt" data-i="${i}"><span class="t"><img src="img/${p.img}.jpg" alt=""></span><span><b>${p.n}</b><span>100 г · ${rub(p.p)}</span></span></button>`).join('');
+$('#bd').insertAdjacentHTML('beforeend',B.map((p,i)=>`<div class="slot" id="sl${i}" style="left:${pos[i][0]}%;top:${pos[i][1]}%"><img src="img/${p.img}.jpg" alt=""></div>`).join(''));
+function rb(){document.querySelectorAll('.opt').forEach(o=>o.classList.toggle('on',sel.has(+o.dataset.i)));B.forEach((p,i)=>$('#sl'+i).classList.toggle('in',sel.has(i)));$('#be').style.opacity=sel.size?0:1;
+ const s=[...sel].reduce((a,i)=>a+B[i].p,0);const f=sel.size>=4?Math.round(s*.9):s;$('#bs').textContent=rub(f);
+ $('#bsv').textContent=sel.size<3?`Выберите ещё ${3-sel.size}`:sel.size>=4?`Скидка 10%: -${rub(s-f)}`:'Добавьте ещё 1 позицию - скидка 10%'}
+$('#opts').onclick=e=>{const o=e.target.closest('.opt');if(!o)return;const i=+o.dataset.i;if(sel.has(i))sel.delete(i);else{if(sel.size>=5)return toast('Максимум 5 позиций на одну доску');sel.add(i)}rb()};
+$('#bAdd').onclick=()=>{if(sel.size<3)return toast('Выберите хотя бы 3 позиции');const s=[...sel].reduce((a,i)=>a+B[i].p,0);add({k:'board-'+[...sel].join('-'),n:'Сырная тарелка: '+[...sel].map(i=>B[i].n).join(', '),p:sel.size>=4?Math.round(s*.9):s,img:'s3'});setTimeout(()=>op(1),400)};
+rb();render();
+function toast(t){const e=$('#tst');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2000)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
