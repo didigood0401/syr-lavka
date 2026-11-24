@@ -128,13 +128,20 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
 @media(max-width:1000px){nav{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bg{grid-template-columns:1fr}.pairs{grid-template-columns:1fr}.pair{aspect-ratio:16/10}.del{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr}.del{grid-template-columns:1fr}.opts{grid-template-columns:1fr}section{padding:70px 0}.facts{gap:24px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#cheese,#cat{scroll-margin-top:5rem}
+.cheese-families{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.cheese-families a{display:block;color:inherit;text-decoration:none;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cheese-families img{display:block;width:100%;height:clamp(145px,18vw,240px);object-fit:cover}
+.cheese-families a div{padding:1rem}.cheese-families h3{margin:0 0 .35rem;font-size:1.45rem}
+.cheese-all{display:inline-block;color:inherit;margin-top:1rem;text-underline-offset:.3em}
+@media(max-width:680px){.cheese-families{grid-template-columns:1fr}.cheese-families a{display:flex;align-items:center}.cheese-families img{width:32%;height:110px}.cheese-families h3{font-size:1.15rem}}
 </style>
 </head>
 <body>
 <div class="demo">Демо-концепция интернет-магазина сыров и закусок · название, цены и фото условные · корзина и оформление работают</div>
 <header><div class="wrap hd">
  <div class="logo">Сырная <i>лавка</i></div>
- <nav><a href="#cat">Каталог</a><a href="#board">Собрать тарелку</a><a href="#pair">К вину</a><a href="#del">Доставка и оплата</a></nav>
+ <nav><a href="#cheese">Сыры</a><a href="#cat">Каталог</a><a href="#board">Собрать тарелку</a><a href="#pair">К вину</a><a href="#del">Доставка и оплата</a></nav>
  <button class="cartb" id="ob">Корзина <span id="cnt">0</span></button>
 </div></header>
 
@@ -143,14 +150,22 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
   <div class="kick">Фермерские и выдержанные сыры</div>
   <h1>Сыры, которые хочется <em>резать медленно</em></h1>
   <p>Твёрдые, мягкие, с плесенью и к вину - нарежем на вес, соберём тарелку и привезём сегодня. Оплата онлайн или наличными курьеру.</p>
-  <div class="cta"><a href="#cat" class="btn a">Выбрать сыр →</a><a href="#board" class="btn o">Собрать сырную тарелку</a></div>
+  <div class="cta"><a href="#cheese" class="btn a">Выбрать сыр</a><a href="#board" class="btn o">Собрать сырную тарелку</a></div>
   <div class="facts"><div><b>60+</b><span>сортов в наличии</span></div><div><b>2 часа</b><span>доставка по городу</span></div><div><b>от 100 г</b><span>режем на вес</span></div></div>
  </div>
 </div>
 
+<section id="cheese" aria-labelledby="cheese-title"><div class="wrap">
+ <div class="sh"><h2 id="cheese-title">Сырная <em>витрина</em></h2><p>Выберите семейство сыров, чтобы посмотреть сорта и цену на нужный вес.</p></div>
+ <div class="cheese-families">
+  <a href="#cat" data-family="hard"><img src="img/c1.jpg" alt=""><div><h3>Твёрдые и полутвёрдые</h3><span>Пармезан, маасдам и гауда</span></div></a>
+  <a href="#cat" data-family="soft"><img src="img/c3.jpg" alt=""><div><h3>Мягкие и с плесенью</h3><span>Бри и дор блю</span></div></a>
+  <a href="#cat" data-family="fresh"><img src="img/c6.jpg" alt=""><div><h3>Свежие</h3><span>Моцарелла для капрезе</span></div></a>
+ </div><a class="cheese-all" href="#cat" data-family="cheese">Посмотреть все сыры</a>
+</div></section>
 <section id="cat"><div class="wrap">
  <div class="sh rv"><h2>Каталог <em>на вес</em></h2><p>Выберите вес прямо в карточке - цена пересчитается сразу. Можно взять по 100 г разных сортов.</p></div>
- <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button></div>
+ <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="cheese">Все сыры</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button><button class="chip" data-f="meat">Мясные деликатесы</button><button class="chip" data-f="holiday">К Новому году</button></div>
  <div class="grid" id="grid"></div>
 </div></section>
 
@@ -211,11 +226,14 @@ const P=[
  {id:4,n:'Маасдам',d:'полутвёрдый, ореховый',p:240,img:'c4',t:'hard'},
  {id:5,n:'Гауда с оливками',d:'фермерская, 6 мес.',p:280,img:'c5',t:'hard'},
  {id:6,n:'Моцарелла и томаты',d:'свежий сыр, капрезе',p:210,img:'c6',t:'fresh'},
- {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'snack'},
+ {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'meat'},
  {id:8,n:'Оливки и хлеб',d:'каламата, закваска',p:190,img:'s2',t:'snack'},
  {id:9,n:'Набор «Вечер»',d:'5 сыров, мёд, орехи · 600 г',p:2490,img:'s3',t:'set',fix:1,f:'Набор'},
  {id:10,n:'Набор «Пикник»',d:'сыры, колбасы, хлеб · 900 г',p:3290,img:'board',t:'set',fix:1},
  {id:11,n:'Сыр к вину',d:'выдержанный, 12 мес.',p:350,img:'alt',t:'hard'},
+ {id:13,n:'Мясная тарелка',d:'салями, фуэт, оливки · 450 г',p:1790,img:'board',t:'meat',fix:1},
+ {id:14,n:'Новогодняя сырная коробка',d:'бри, гауда, пармезан и мёд · 600 г',p:2590,img:'s3',t:'holiday',fix:1},
+ {id:15,n:'К полуночи',d:'сырная и мясная нарезка к праздничному столу · 900 г',p:3490,img:'board',t:'holiday',fix:1},
  {id:12,n:'Ассорти к игристому',d:'бри, козий, ягоды · 400 г',p:1890,img:'wine',t:'set',fix:1}
 ];
 const rub=n=>n.toLocaleString('ru-RU')+' ₽';const $=s=>document.querySelector(s);
@@ -226,7 +244,10 @@ $('#grid').innerHTML=P.map(p=>`<div class="card rv" data-t="${p.t}"><div class="
 document.querySelectorAll('.wt').forEach(w=>w.onclick=e=>{const b=e.target.closest('button');if(!b)return;w.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const pr=w.parentNode.querySelector('.pr');pr.textContent=rub(+pr.dataset.p*b.dataset.w/100)});
 document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const p=P.find(x=>x.id==b.dataset.id);const w=b.closest('.cb').querySelector('.wt .on');const g=w?+w.dataset.w:0;
  add({k:p.id+'-'+g,n:p.n+(g?` · ${g} г`:''),p:g?p.p*g/100:p.p,img:p.img});b.textContent='Добавлено ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='В корзину';b.classList.remove('ok')},1500)});
-$('#chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));document.querySelectorAll('.card').forEach(k=>k.classList.toggle('hide',c.dataset.f!=='all'&&k.dataset.t!==c.dataset.f))};
+$('#chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));document.querySelectorAll('.card').forEach(k=>k.classList.toggle('hide',c.dataset.f==='cheese'?!['hard','soft','fresh'].includes(k.dataset.t):c.dataset.f!=='all'&&k.dataset.t!==c.dataset.f))};
+document.querySelectorAll('[data-family]').forEach(link=>link.addEventListener('click',()=>{
+ document.querySelector('#chips [data-f="'+link.dataset.family+'"]').click();
+}));
 function add(it){const e=cart.find(x=>x.k===it.k);e?e.q++:cart.push({...it,q:1});render();const c=$('#cnt');c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),250);toast('Добавлено в корзину')}
 function render(){$('#cnt').textContent=cart.reduce((a,b)=>a+b.q,0);
  $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t"><img src="img/${i.img}.jpg" alt=""></div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пустая.<br>Самое время выбрать сыр.</div>';
