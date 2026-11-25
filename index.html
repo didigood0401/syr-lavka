@@ -142,6 +142,14 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
 .fld{display:grid;gap:8px;margin-bottom:12px}.fld input{border:1.5px solid #ddd2bd;border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
 .df{max-height:64vh;overflow:auto}
 @media(max-width:1000px){.more{grid-template-columns:1fr 1fr}}@media(max-width:560px){.more{grid-template-columns:1fr}}
+em{font-style:normal;color:inherit!important}.logo i{font-style:normal;color:inherit}
+header{backdrop-filter:none;background:var(--bg)}
+.hero img{animation:none;transform:none}
+.hero:after{background:linear-gradient(90deg,rgba(14,20,16,.8),rgba(14,20,16,.3))}
+.rv{opacity:1!important;transform:none!important;transition:none}
+.card,.card:hover{transform:none;transition:none;border-radius:8px}.card:hover .ph img{transform:none}
+.btn,.add,.cartb,.chip{border-radius:6px}
+.board{box-shadow:none}
 </style>
 </head>
 <body>
@@ -154,123 +162,11 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
 
 <div class="hero"><img src="img/hero.jpg" alt="Выдержанные сыры на тёмной доске">
  <div class="wrap hc">
-  <div class="kick">Фермерские и выдержанные сыры</div>
-  <h1>Сыры и закуски <em>к любому столу</em></h1>
-  <p>Сыры, мясные деликатесы, сладости и чай. Нарежем на вес, соберём тарелку или подарочный набор к Новому году и привезём. Оплата онлайн или наличными курьеру.</p>
+  
+  <h1>Сыры, мясные деликатесы и закуски</h1>
+  <p>Продаём на вес от 100 г. Есть готовые наборы и подарки к Новому году. Доставка курьером или самовывоз, оплата онлайн или наличными.</p>
   <div class="cta"><a href="#cheese" class="btn a">Выбрать сыр</a><a href="#board" class="btn o">Собрать сырную тарелку</a></div>
-  <div class="facts"><div><b>от 100 г</b><span>режем на вес</span></div><div><b>3 способа</b><span>оплаты: карта, СБП, наличные</span></div><div><b>Курьер</b><span>или самовывоз</span></div></div>
- </div>
-</div>
-
-<section id="cheese" aria-labelledby="cheese-title"><div class="wrap">
- <div class="sh"><h2 id="cheese-title">Сырная <em>витрина</em></h2><p>Выберите семейство сыров, чтобы посмотреть сорта и цену на нужный вес.</p></div>
- <div class="cheese-families">
-  <a href="#cat" data-family="hard"><img src="img/c1.jpg" alt=""><div><h3>Твёрдые и полутвёрдые</h3><span>Пармезан, маасдам и гауда</span></div></a>
-  <a href="#cat" data-family="soft"><img src="img/c3.jpg" alt=""><div><h3>Мягкие и с плесенью</h3><span>Бри и дор блю</span></div></a>
-  <a href="#cat" data-family="fresh"><img src="img/c6.jpg" alt=""><div><h3>Свежие</h3><span>Моцарелла для капрезе</span></div></a>
- </div><a class="cheese-all" href="#cat" data-family="cheese">Посмотреть все сыры</a>
-</div></section>
-<section id="more" style="padding-bottom:0"><div class="wrap">
- <div class="sh rv"><h2>Не только <em>сыры</em></h2><p>Мясные деликатесы, сладости, чай и подарочные наборы к Новому году.</p></div>
- <div class="more">
-  <a href="#cat" data-family="meat"><h3>Мясные деликатесы</h3><span>Ветчина, колбасы, хамон</span></a>
-  <a href="#cat" data-family="sweet"><h3>Сладости</h3><span>Макаронс, шоколад, пахлава</span></a>
-  <a href="#cat" data-family="tea"><h3>Чай и чайные наборы</h3><span>Листовой чай и подарочные коробки</span></a>
-  <a href="#cat" data-family="gift"><h3>Подарки к Новому году</h3><span>Наборы с сыром, колбасой, чаем и сладостями</span></a>
- </div>
-</div></section>
-<section id="cat"><div class="wrap">
- <div class="sh rv"><h2>Каталог <em>на вес</em></h2><p>Выберите вес прямо в карточке - цена пересчитается сразу. Можно взять по 100 г разных сортов.</p></div>
- <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="cheese">Все сыры</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button><button class="chip" data-f="meat">Мясные деликатесы</button><button class="chip" data-f="sweet">Сладости</button><button class="chip" data-f="tea">Чай и чайные наборы</button><button class="chip" data-f="gift">Подарочные наборы к НГ</button><button class="chip" data-f="ny">Сезон: Новый год</button></div>
- <div class="grid" id="grid"></div>
-</div></section>
-
-<section class="builder" id="board"><div class="wrap">
- <div class="sh rv"><h2>Соберите <em>сырную тарелку</em></h2><p>Отметьте 3-5 позиций - мы нарежем, красиво разложим на доске и добавим мёд и орехи. От 4 позиций - скидка 10%.</p></div>
- <div class="bg">
-  <div class="board rv" id="bd"><div class="bempty" id="be">Выберите сыры и закуски →</div></div>
-  <div class="rv">
-   <div class="opts" id="opts"></div>
-   <div class="btot"><div><div class="s" id="bs">0 ₽</div><small id="bsv">Выберите от 3 позиций</small></div><button class="btn d" id="bAdd">Добавить тарелку в корзину</button></div>
-  </div>
- </div>
-</div></section>
-
-<section id="pair"><div class="wrap">
- <div class="sh rv"><h2>Что взять <em>к вину</em></h2><p>Сомелье лавки подобрал готовые сочетания - достаточно выбрать вино.</p></div>
- <div class="pairs">
-  <div class="pair rv"><img src="img/wine.jpg" alt="Сыры к красному вину"><div><h3>К красному</h3><p>Пармезан 24 мес., гауда с пажитником, сыровяленая колбаса</p></div></div>
-  <div class="pair rv"><img src="img/c2.jpg" alt="Сыры к белому вину"><div><h3>К белому и игристому</h3><p>Бри, камамбер, козий сыр, малина и мёд</p></div></div>
-  <div class="pair rv"><img src="img/s2.jpg" alt="Закуски к ужину"><div><h3>К ужину на компанию</h3><p>Хлеб на закваске, оливки, хамон, моцарелла</p></div></div>
- </div>
-</div></section>
-
-<section id="del" style="padding-top:0"><div class="wrap">
- <div class="sh rv"><h2>Доставка <em>и оплата</em></h2></div>
- <div class="del">
-  <div class="dl rv"><b>Курьером</b><span>290 ₽, бесплатно от 3 000 ₽</span></div>
-  <div class="dl rv"><b>Самовывоз</b><span>из магазина, бесплатно</span></div>
-  <div class="dl rv"><b>Онлайн-оплата</b><span>картой или по СБП прямо на сайте</span></div>
-  <div class="dl rv"><b>Наличными</b><span>или картой курьеру при получении</span></div>
- </div>
-</div></section>
-
-<footer><div class="wrap ft"><div class="logo">Сырная <i>лавка</i></div><div>Демо-концепция. Название, цены, фото - условные.<br>Оферта · Политика конфиденциальности · Доставка и возврат · Контакты и реквизиты (будут добавлены при запуске)</div><div>Дизайн и разработка - Диана</div></div></footer>
-
-<div class="ov" id="ov"></div>
-<aside class="dr" id="dr">
- <div class="dh"><h3>Корзина</h3><button id="cl" style="font-size:28px" aria-label="Закрыть">×</button></div>
- <div class="db" id="db"></div>
- <div class="done" id="dn"><b>Заказ принят!</b>В рабочей версии здесь - оплата онлайн или подтверждение заказа с оплатой курьеру.</div>
- <div class="df" id="df">
-  <div class="dm"><label><input type="radio" name="dm" value="c" checked>Курьер</label><label><input type="radio" name="dm" value="p">Самовывоз</label></div>
-  <div class="fld"><input id="fn" placeholder="Имя" autocomplete="name"><input id="fp" placeholder="Телефон" inputmode="tel" autocomplete="tel"><input id="adr" placeholder="Адрес доставки" autocomplete="street-address"><input id="fc" type="text" placeholder="Комментарий (необязательно)"></div><div style="font-size:13px;color:#6c6455">Оплата</div>
-  <div class="pay"><label><input type="radio" name="pay" value="card" checked>Картой онлайн</label><label><input type="radio" name="pay" value="sbp">СБП</label><label><input type="radio" name="pay" value="cash">Наличными</label></div>
-  <div class="row"><span>Товары</span><span id="sub">0 ₽</span></div>
-  <div class="row"><span>Доставка</span><span id="dlv">0 ₽</span></div>
-  <div class="row tot"><span>Итого</span><span id="tot">0 ₽</span></div>
-  <button class="btn d go" id="go">Оформить заказ</button>
- </div>
-</aside>
-<div class="toast" id="tst"></div>
-
-<script>
-const P=[
- {id:1,n:'Пармезан 24 мес.',d:'Италия · твёрдый, кристаллы',p:390,img:'c1',t:'hard',f:'Хит'},
- {id:2,n:'Дор блю',d:'с голубой плесенью, сливочный',p:320,img:'c2',t:'soft'},
- {id:3,n:'Бри де Мо',d:'мягкий, белая плесень',p:360,img:'c3',t:'soft',f:'Новинка'},
- {id:4,n:'Маасдам',d:'полутвёрдый, ореховый',p:240,img:'c4',t:'hard'},
- {id:5,n:'Гауда с оливками',d:'фермерская, 6 мес.',p:280,img:'c5',t:'hard'},
- {id:6,n:'Моцарелла и томаты',d:'свежий сыр, капрезе',p:210,img:'c6',t:'fresh'},
- {id:11,n:'Сыр к вину',d:'выдержанный, 12 мес.',p:350,img:'alt',t:'hard'},
- {id:8,n:'Оливки и хлеб',d:'каламата, закваска',p:190,img:'s2',t:'snack'},
- {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'meat'},
- {id:16,n:'Ветчина запечённая',d:'свинина, нарезка',p:280,img:null,t:'meat'},
- {id:17,n:'Ветчина сыровяленая',d:'хамон, выдержка 12 мес.',p:690,img:null,t:'meat',f:'Хит'},
- {id:18,n:'Колбаса варёно-копчёная',d:'говядина, нарезка',p:310,img:null,t:'meat'},
- {id:19,n:'Колбаса сыровяленая',d:'фермерская, с перцем',p:360,img:null,t:'meat'},
- {id:13,n:'Мясная тарелка',d:'салями, фуэт, оливки · 450 г',p:1790,img:'board',t:'meat',fix:1},
- {id:20,n:'Макаронс ассорти',d:'12 шт. · 200 г',p:1100,img:null,t:'sweet',fix:1},
- {id:21,n:'Бельгийский шоколад',d:'набор плиток · 300 г',p:760,img:null,t:'sweet',fix:1},
- {id:22,n:'Пахлава',d:'ассорти · 400 г',p:650,img:null,t:'sweet',fix:1},
- {id:23,n:'Новогодние сладости',d:'пряники, конфеты, мандарины · 1,2 кг',p:1300,img:null,t:'sweet',fix:1,ny:1,f:'Новый год'},
- {id:24,n:'Чай «Лесная ягода»',d:'фруктово-ягодный · 100 г',p:420,img:null,t:'tea',fix:1},
- {id:25,n:'Улун молочный',d:'листовой · 100 г',p:550,img:null,t:'tea',fix:1},
- {id:26,n:'Чайный набор «Уют»',d:'5 сортов в подарочной коробке',p:1600,img:null,t:'tea',fix:1},
- {id:27,n:'Чайный набор «К сыру»',d:'чай, мёд и орехи в коробке',p:1900,img:null,t:'tea',fix:1,ny:1},
- {id:9,n:'Набор «Вечер»',d:'5 сыров, мёд, орехи · 600 г',p:2490,img:'s3',t:'set',fix:1,f:'Набор'},
- {id:10,n:'Набор «Пикник»',d:'сыры, колбасы, хлеб · 900 г',p:3290,img:'board',t:'set',fix:1},
- {id:12,n:'Ассорти к игристому',d:'бри, козий, ягоды · 400 г',p:1890,img:'wine',t:'set',fix:1},
- {id:14,n:'Новогодняя сырная коробка',d:'бри, гауда, пармезан и мёд · 600 г',p:2590,img:'s3',t:'gift',fix:1,ny:1,f:'Новый год'},
- {id:15,n:'К полуночи',d:'сырная и мясная нарезка к праздничному столу · 900 г',p:3490,img:'board',t:'gift',fix:1,ny:1},
- {id:28,n:'Подарок «Новогодний»',d:'сыр, колбаса, чай, сладости в коробке',p:3500,img:null,t:'gift',fix:1,ny:1},
- {id:29,n:'Чайно-сладкий подарок',d:'чай, шоколад, макаронс',p:2200,img:null,t:'gift',fix:1,ny:1}
-];
-const th=(i,a)=>i?`<img src="img/${i}.jpg" alt="${a}" loading="lazy">`:'<div class="nf">Фото товара</div>';const rub=n=>n.toLocaleString('ru-RU')+' ₽';const $=s=>document.querySelector(s);
-let cart=JSON.parse(localStorage.slc||'[]');
-$('#grid').innerHTML=P.map(p=>`<div class="card rv" data-t="${p.t}" data-ny="${p.ny?1:0}"><div class="ph">${th(p.img,p.n)}${p.f?`<span class="flag">${p.f}</span>`:''}</div>
- <div class="cb"><h3>${p.n}</h3><div class="d">${p.d}</div>${p.fix?'':`<div class="wt">${[100,200,300].map((w,i)=>`<button data-w="${w}" class="${i==1?'on':''}">${w} г</button>`).join('')}</div>`}
- <div class="buy"><div class="pr" data-p="${p.p}">${rub(p.fix?p.p:p.p*2)}</div><button class="add" data-id="${p.id}">В корзину</button></div></div></div>`).join('');
+  </div>`).join('');
 document.querySelectorAll('.wt').forEach(w=>w.onclick=e=>{const b=e.target.closest('button');if(!b)return;w.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const pr=w.parentNode.querySelector('.pr');pr.textContent=rub(+pr.dataset.p*b.dataset.w/100)});
 document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const p=P.find(x=>x.id==b.dataset.id);const w=b.closest('.cb').querySelector('.wt .on');const g=w?+w.dataset.w:0;
  add({k:p.id+'-'+g,n:p.n+(g?` · ${g} г`:''),p:g?p.p*g/100:p.p,img:p.img});b.textContent='Добавлено ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='В корзину';b.classList.remove('ok')},1500)});
@@ -280,7 +176,7 @@ document.querySelectorAll('[data-family]').forEach(link=>link.addEventListener('
 }));
 function add(it){const e=cart.find(x=>x.k===it.k);e?e.q++:cart.push({...it,q:1});render();const c=$('#cnt');c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),250);toast('Добавлено в корзину')}
 function render(){localStorage.slc=JSON.stringify(cart);$('#cnt').textContent=cart.reduce((a,b)=>a+b.q,0);
- $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t">${th(i.img,'')}</div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пустая.<br>Самое время выбрать сыр.</div>';
+ $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t">${th(i.img,'')}</div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пуста.</div>';
  const s=cart.reduce((a,b)=>a+b.p*b.q,0);const pick=document.querySelector('input[name=dm]:checked').value==='p';const d=pick||s>=3000||!s?0:290;
  $('#adr').style.display=pick?'none':'';$('#sub').textContent=rub(s);$('#dlv').textContent=pick?'самовывоз':(d?rub(d):'бесплатно');$('#tot').textContent=rub(s+d)}
 document.querySelectorAll('input[name=dm]').forEach(r=>r.onchange=render);
