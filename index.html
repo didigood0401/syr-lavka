@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Сырная лавка - сыры и закуски с доставкой</title>
+<title>Сырная лавка - сыры, мясные деликатесы и подарочные наборы</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -135,23 +135,30 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
 .cheese-families a div{padding:1rem}.cheese-families h3{margin:0 0 .35rem;font-size:1.45rem}
 .cheese-all{display:inline-block;color:inherit;margin-top:1rem;text-underline-offset:.3em}
 @media(max-width:680px){.cheese-families{grid-template-columns:1fr}.cheese-families a{display:flex;align-items:center}.cheese-families img{width:32%;height:110px}.cheese-families h3{font-size:1.15rem}}
+.nf{display:grid;place-items:center;width:100%;height:100%;background:linear-gradient(135deg,#2b3d31,#1b261f);color:var(--mut);font-size:13px}
+.more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.more a{border:1px solid var(--line);border-radius:18px;padding:24px;color:inherit;text-decoration:none;transition:.3s;background:var(--card)}
+.more a:hover{border-color:var(--amb)}.more h3{font-family:"Playfair Display";font-weight:500;font-size:22px;margin-bottom:6px}.more span{color:var(--mut);font-size:14px}
+.fld{display:grid;gap:8px;margin-bottom:12px}.fld input{border:1.5px solid #ddd2bd;border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.df{max-height:64vh;overflow:auto}
+@media(max-width:1000px){.more{grid-template-columns:1fr 1fr}}@media(max-width:560px){.more{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="demo">Демо-концепция интернет-магазина сыров и закусок · название, цены и фото условные · корзина и оформление работают</div>
 <header><div class="wrap hd">
  <div class="logo">Сырная <i>лавка</i></div>
- <nav><a href="#cheese">Сыры</a><a href="#cat">Каталог</a><a href="#board">Собрать тарелку</a><a href="#pair">К вину</a><a href="#del">Доставка и оплата</a></nav>
+ <nav><a href="#cheese">Сыры</a><a href="#cat">Каталог</a><a href="#cat" data-family="ny">Новый год</a><a href="#board">Собрать тарелку</a><a href="#pair">К вину</a><a href="#del">Доставка и оплата</a></nav>
  <button class="cartb" id="ob">Корзина <span id="cnt">0</span></button>
 </div></header>
 
 <div class="hero"><img src="img/hero.jpg" alt="Выдержанные сыры на тёмной доске">
  <div class="wrap hc">
   <div class="kick">Фермерские и выдержанные сыры</div>
-  <h1>Сыры, которые хочется <em>резать медленно</em></h1>
-  <p>Твёрдые, мягкие, с плесенью и к вину - нарежем на вес, соберём тарелку и привезём сегодня. Оплата онлайн или наличными курьеру.</p>
+  <h1>Сыры и закуски <em>к любому столу</em></h1>
+  <p>Сыры, мясные деликатесы, сладости и чай. Нарежем на вес, соберём тарелку или подарочный набор к Новому году и привезём. Оплата онлайн или наличными курьеру.</p>
   <div class="cta"><a href="#cheese" class="btn a">Выбрать сыр</a><a href="#board" class="btn o">Собрать сырную тарелку</a></div>
-  <div class="facts"><div><b>60+</b><span>сортов в наличии</span></div><div><b>2 часа</b><span>доставка по городу</span></div><div><b>от 100 г</b><span>режем на вес</span></div></div>
+  <div class="facts"><div><b>от 100 г</b><span>режем на вес</span></div><div><b>3 способа</b><span>оплаты: карта, СБП, наличные</span></div><div><b>Курьер</b><span>или самовывоз</span></div></div>
  </div>
 </div>
 
@@ -163,9 +170,18 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
   <a href="#cat" data-family="fresh"><img src="img/c6.jpg" alt=""><div><h3>Свежие</h3><span>Моцарелла для капрезе</span></div></a>
  </div><a class="cheese-all" href="#cat" data-family="cheese">Посмотреть все сыры</a>
 </div></section>
+<section id="more" style="padding-bottom:0"><div class="wrap">
+ <div class="sh rv"><h2>Не только <em>сыры</em></h2><p>Мясные деликатесы, сладости, чай и подарочные наборы к Новому году.</p></div>
+ <div class="more">
+  <a href="#cat" data-family="meat"><h3>Мясные деликатесы</h3><span>Ветчина, колбасы, хамон</span></a>
+  <a href="#cat" data-family="sweet"><h3>Сладости</h3><span>Макаронс, шоколад, пахлава</span></a>
+  <a href="#cat" data-family="tea"><h3>Чай и чайные наборы</h3><span>Листовой чай и подарочные коробки</span></a>
+  <a href="#cat" data-family="gift"><h3>Подарки к Новому году</h3><span>Наборы с сыром, колбасой, чаем и сладостями</span></a>
+ </div>
+</div></section>
 <section id="cat"><div class="wrap">
  <div class="sh rv"><h2>Каталог <em>на вес</em></h2><p>Выберите вес прямо в карточке - цена пересчитается сразу. Можно взять по 100 г разных сортов.</p></div>
- <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="cheese">Все сыры</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button><button class="chip" data-f="meat">Мясные деликатесы</button><button class="chip" data-f="holiday">К Новому году</button></div>
+ <div class="chips rv" id="chips"><button class="chip on" data-f="all">Все</button><button class="chip" data-f="cheese">Все сыры</button><button class="chip" data-f="hard">Твёрдые</button><button class="chip" data-f="soft">Мягкие и с плесенью</button><button class="chip" data-f="fresh">Свежие</button><button class="chip" data-f="snack">Закуски</button><button class="chip" data-f="set">Наборы</button><button class="chip" data-f="meat">Мясные деликатесы</button><button class="chip" data-f="sweet">Сладости</button><button class="chip" data-f="tea">Чай и чайные наборы</button><button class="chip" data-f="gift">Подарочные наборы к НГ</button><button class="chip" data-f="ny">Сезон: Новый год</button></div>
  <div class="grid" id="grid"></div>
 </div></section>
 
@@ -192,14 +208,14 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
 <section id="del" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><h2>Доставка <em>и оплата</em></h2></div>
  <div class="del">
-  <div class="dl rv"><b>Сегодня за 2 часа</b><span>курьер в термосумке, бесплатно от 3 000 ₽</span></div>
-  <div class="dl rv"><b>Самовывоз</b><span>из лавки через 20 минут после заказа</span></div>
+  <div class="dl rv"><b>Курьером</b><span>290 ₽, бесплатно от 3 000 ₽</span></div>
+  <div class="dl rv"><b>Самовывоз</b><span>из магазина, бесплатно</span></div>
   <div class="dl rv"><b>Онлайн-оплата</b><span>картой или по СБП прямо на сайте</span></div>
   <div class="dl rv"><b>Наличными</b><span>или картой курьеру при получении</span></div>
  </div>
 </div></section>
 
-<footer><div class="wrap ft"><div class="logo">Сырная <i>лавка</i></div><div>Демо-концепция. Название, цены, фото - условные.</div><div>Дизайн и разработка - Диана</div></div></footer>
+<footer><div class="wrap ft"><div class="logo">Сырная <i>лавка</i></div><div>Демо-концепция. Название, цены, фото - условные.<br>Оферта · Политика конфиденциальности · Доставка и возврат · Контакты и реквизиты (будут добавлены при запуске)</div><div>Дизайн и разработка - Диана</div></div></footer>
 
 <div class="ov" id="ov"></div>
 <aside class="dr" id="dr">
@@ -208,8 +224,8 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;color:var(--mut);fon
  <div class="done" id="dn"><b>Заказ принят!</b>В рабочей версии здесь - оплата онлайн или подтверждение заказа с оплатой курьеру.</div>
  <div class="df" id="df">
   <div class="dm"><label><input type="radio" name="dm" value="c" checked>Курьер</label><label><input type="radio" name="dm" value="p">Самовывоз</label></div>
-  <div style="font-size:13px;color:#6c6455">Оплата</div>
-  <div class="pay"><label><input type="radio" name="pay" checked>Картой онлайн</label><label><input type="radio" name="pay">СБП</label><label><input type="radio" name="pay">Наличными</label></div>
+  <div class="fld"><input id="fn" placeholder="Имя" autocomplete="name"><input id="fp" placeholder="Телефон" inputmode="tel" autocomplete="tel"><input id="adr" placeholder="Адрес доставки" autocomplete="street-address"><input id="fc" type="text" placeholder="Комментарий (необязательно)"></div><div style="font-size:13px;color:#6c6455">Оплата</div>
+  <div class="pay"><label><input type="radio" name="pay" value="card" checked>Картой онлайн</label><label><input type="radio" name="pay" value="sbp">СБП</label><label><input type="radio" name="pay" value="cash">Наличными</label></div>
   <div class="row"><span>Товары</span><span id="sub">0 ₽</span></div>
   <div class="row"><span>Доставка</span><span id="dlv">0 ₽</span></div>
   <div class="row tot"><span>Итого</span><span id="tot">0 ₽</span></div>
@@ -226,38 +242,59 @@ const P=[
  {id:4,n:'Маасдам',d:'полутвёрдый, ореховый',p:240,img:'c4',t:'hard'},
  {id:5,n:'Гауда с оливками',d:'фермерская, 6 мес.',p:280,img:'c5',t:'hard'},
  {id:6,n:'Моцарелла и томаты',d:'свежий сыр, капрезе',p:210,img:'c6',t:'fresh'},
- {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'meat'},
+ {id:11,n:'Сыр к вину',d:'выдержанный, 12 мес.',p:350,img:'alt',t:'hard'},
  {id:8,n:'Оливки и хлеб',d:'каламата, закваска',p:190,img:'s2',t:'snack'},
+ {id:7,n:'Салями и фуэт',d:'сыровяленая колбаса',p:330,img:'s1',t:'meat'},
+ {id:16,n:'Ветчина запечённая',d:'свинина, нарезка',p:280,img:null,t:'meat'},
+ {id:17,n:'Ветчина сыровяленая',d:'хамон, выдержка 12 мес.',p:690,img:null,t:'meat',f:'Хит'},
+ {id:18,n:'Колбаса варёно-копчёная',d:'говядина, нарезка',p:310,img:null,t:'meat'},
+ {id:19,n:'Колбаса сыровяленая',d:'фермерская, с перцем',p:360,img:null,t:'meat'},
+ {id:13,n:'Мясная тарелка',d:'салями, фуэт, оливки · 450 г',p:1790,img:'board',t:'meat',fix:1},
+ {id:20,n:'Макаронс ассорти',d:'12 шт. · 200 г',p:1100,img:null,t:'sweet',fix:1},
+ {id:21,n:'Бельгийский шоколад',d:'набор плиток · 300 г',p:760,img:null,t:'sweet',fix:1},
+ {id:22,n:'Пахлава',d:'ассорти · 400 г',p:650,img:null,t:'sweet',fix:1},
+ {id:23,n:'Новогодние сладости',d:'пряники, конфеты, мандарины · 1,2 кг',p:1300,img:null,t:'sweet',fix:1,ny:1,f:'Новый год'},
+ {id:24,n:'Чай «Лесная ягода»',d:'фруктово-ягодный · 100 г',p:420,img:null,t:'tea',fix:1},
+ {id:25,n:'Улун молочный',d:'листовой · 100 г',p:550,img:null,t:'tea',fix:1},
+ {id:26,n:'Чайный набор «Уют»',d:'5 сортов в подарочной коробке',p:1600,img:null,t:'tea',fix:1},
+ {id:27,n:'Чайный набор «К сыру»',d:'чай, мёд и орехи в коробке',p:1900,img:null,t:'tea',fix:1,ny:1},
  {id:9,n:'Набор «Вечер»',d:'5 сыров, мёд, орехи · 600 г',p:2490,img:'s3',t:'set',fix:1,f:'Набор'},
  {id:10,n:'Набор «Пикник»',d:'сыры, колбасы, хлеб · 900 г',p:3290,img:'board',t:'set',fix:1},
- {id:11,n:'Сыр к вину',d:'выдержанный, 12 мес.',p:350,img:'alt',t:'hard'},
- {id:13,n:'Мясная тарелка',d:'салями, фуэт, оливки · 450 г',p:1790,img:'board',t:'meat',fix:1},
- {id:14,n:'Новогодняя сырная коробка',d:'бри, гауда, пармезан и мёд · 600 г',p:2590,img:'s3',t:'holiday',fix:1},
- {id:15,n:'К полуночи',d:'сырная и мясная нарезка к праздничному столу · 900 г',p:3490,img:'board',t:'holiday',fix:1},
- {id:12,n:'Ассорти к игристому',d:'бри, козий, ягоды · 400 г',p:1890,img:'wine',t:'set',fix:1}
+ {id:12,n:'Ассорти к игристому',d:'бри, козий, ягоды · 400 г',p:1890,img:'wine',t:'set',fix:1},
+ {id:14,n:'Новогодняя сырная коробка',d:'бри, гауда, пармезан и мёд · 600 г',p:2590,img:'s3',t:'gift',fix:1,ny:1,f:'Новый год'},
+ {id:15,n:'К полуночи',d:'сырная и мясная нарезка к праздничному столу · 900 г',p:3490,img:'board',t:'gift',fix:1,ny:1},
+ {id:28,n:'Подарок «Новогодний»',d:'сыр, колбаса, чай, сладости в коробке',p:3500,img:null,t:'gift',fix:1,ny:1},
+ {id:29,n:'Чайно-сладкий подарок',d:'чай, шоколад, макаронс',p:2200,img:null,t:'gift',fix:1,ny:1}
 ];
-const rub=n=>n.toLocaleString('ru-RU')+' ₽';const $=s=>document.querySelector(s);
-let cart=[];
-$('#grid').innerHTML=P.map(p=>`<div class="card rv" data-t="${p.t}"><div class="ph"><img src="img/${p.img}.jpg" alt="${p.n}" loading="lazy">${p.f?`<span class="flag">${p.f}</span>`:''}</div>
+const th=(i,a)=>i?`<img src="img/${i}.jpg" alt="${a}" loading="lazy">`:'<div class="nf">Фото товара</div>';const rub=n=>n.toLocaleString('ru-RU')+' ₽';const $=s=>document.querySelector(s);
+let cart=JSON.parse(localStorage.slc||'[]');
+$('#grid').innerHTML=P.map(p=>`<div class="card rv" data-t="${p.t}" data-ny="${p.ny?1:0}"><div class="ph">${th(p.img,p.n)}${p.f?`<span class="flag">${p.f}</span>`:''}</div>
  <div class="cb"><h3>${p.n}</h3><div class="d">${p.d}</div>${p.fix?'':`<div class="wt">${[100,200,300].map((w,i)=>`<button data-w="${w}" class="${i==1?'on':''}">${w} г</button>`).join('')}</div>`}
  <div class="buy"><div class="pr" data-p="${p.p}">${rub(p.fix?p.p:p.p*2)}</div><button class="add" data-id="${p.id}">В корзину</button></div></div></div>`).join('');
 document.querySelectorAll('.wt').forEach(w=>w.onclick=e=>{const b=e.target.closest('button');if(!b)return;w.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const pr=w.parentNode.querySelector('.pr');pr.textContent=rub(+pr.dataset.p*b.dataset.w/100)});
 document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const p=P.find(x=>x.id==b.dataset.id);const w=b.closest('.cb').querySelector('.wt .on');const g=w?+w.dataset.w:0;
  add({k:p.id+'-'+g,n:p.n+(g?` · ${g} г`:''),p:g?p.p*g/100:p.p,img:p.img});b.textContent='Добавлено ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='В корзину';b.classList.remove('ok')},1500)});
-$('#chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));document.querySelectorAll('.card').forEach(k=>k.classList.toggle('hide',c.dataset.f==='cheese'?!['hard','soft','fresh'].includes(k.dataset.t):c.dataset.f!=='all'&&k.dataset.t!==c.dataset.f))};
+const match=(k,f)=>f==='all'||(f==='cheese'?['hard','soft','fresh'].includes(k.dataset.t):f==='ny'?k.dataset.ny==='1':k.dataset.t===f);$('#chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));document.querySelectorAll('.card').forEach(k=>k.classList.toggle('hide',!match(k,c.dataset.f)))};
 document.querySelectorAll('[data-family]').forEach(link=>link.addEventListener('click',()=>{
  document.querySelector('#chips [data-f="'+link.dataset.family+'"]').click();
 }));
 function add(it){const e=cart.find(x=>x.k===it.k);e?e.q++:cart.push({...it,q:1});render();const c=$('#cnt');c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),250);toast('Добавлено в корзину')}
-function render(){$('#cnt').textContent=cart.reduce((a,b)=>a+b.q,0);
- $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t"><img src="img/${i.img}.jpg" alt=""></div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пустая.<br>Самое время выбрать сыр.</div>';
+function render(){localStorage.slc=JSON.stringify(cart);$('#cnt').textContent=cart.reduce((a,b)=>a+b.q,0);
+ $('#db').innerHTML=cart.length?cart.map(i=>`<div class="di"><div class="t">${th(i.img,'')}</div><div class="n"><b>${i.n}</b><div class="q"><button data-k="${i.k}" data-d="-1">−</button>${i.q}<button data-k="${i.k}" data-d="1">+</button></div></div><div>${rub(i.p*i.q)}</div></div>`).join(''):'<div class="empty">Корзина пустая.<br>Самое время выбрать сыр.</div>';
  const s=cart.reduce((a,b)=>a+b.p*b.q,0);const pick=document.querySelector('input[name=dm]:checked').value==='p';const d=pick||s>=3000||!s?0:290;
- $('#sub').textContent=rub(s);$('#dlv').textContent=pick?'самовывоз':(d?rub(d):'бесплатно');$('#tot').textContent=rub(s+d)}
+ $('#adr').style.display=pick?'none':'';$('#sub').textContent=rub(s);$('#dlv').textContent=pick?'самовывоз':(d?rub(d):'бесплатно');$('#tot').textContent=rub(s+d)}
 document.querySelectorAll('input[name=dm]').forEach(r=>r.onchange=render);
 $('#db').onclick=e=>{const b=e.target.closest('button[data-k]');if(!b)return;const i=cart.find(x=>x.k===b.dataset.k);i.q+=+b.dataset.d;if(i.q<=0)cart=cart.filter(x=>x!==i);render()};
 const op=v=>{$('#dr').classList.toggle('on',v);$('#ov').classList.toggle('on',v);if(v){$('#dn').style.display='none';$('#db').style.display='';$('#df').style.display=''}};
 $('#ob').onclick=()=>op(1);$('#cl').onclick=()=>op(0);$('#ov').onclick=()=>op(0);
-$('#go').onclick=()=>{if(!cart.length)return toast('Добавьте что-нибудь в корзину');$('#db').style.display='none';$('#df').style.display='none';$('#dn').style.display='block';cart=[];render()};
+$('#go').onclick=()=>{if(!cart.length)return toast('Добавьте что-нибудь в корзину');
+ const pick=document.querySelector('input[name=dm]:checked').value==='p';
+ if(!$('#fn').value.trim()||$('#fp').value.replace(/\D/g,'').length<10)return toast('Укажите имя и телефон');
+ if(!pick&&!$('#adr').value.trim())return toast('Укажите адрес доставки');
+ const pay=document.querySelector('input[name=pay]:checked').value;
+ const msg={card:'Далее покупатель попадает на страницу оплаты картой (ЮKassa).',sbp:'Далее покупатель оплачивает по QR-коду СБП.',cash:'Оплата наличными при получении.'}[pay];
+ $('#dn').innerHTML='<b>Заказ принят!</b>'+msg+'<br>Уведомление о заказе уйдёт на почту и в Telegram магазина.';
+ $('#db').style.display='none';$('#df').style.display='none';$('#dn').style.display='block';cart=[];render()};
 // board builder
 const B=[1,2,3,4,5,7,8,6].map(id=>P.find(p=>p.id===id));const sel=new Set();
 const pos=[[8,10],[38,5],[66,14],[16,52],[46,46],[70,56],[30,28],[56,30]];
